@@ -1,0 +1,15 @@
+[project]
+name = "toy-error-mitigation"
+version = "0.1.0"
+description = "Add your description here"
+readme = "README.md"
+requires-python = ">=3.12"
+dependencies = [
+    "matplotlib>=3.10.8",
+    "numpy>=2.4.3",
+    "pandas>=3.0.1",
+    "qiskit>=2.3.1",
+    "qiskit-aer>=0.17.2",
+    "scikit-learn>=1.8.0",
+    "torch>=2.11.0",
+]
