@@ -1,30 +1,28 @@
 import torch.nn as nn
 
 
-class MLP(nn.Module):
-    def __init__(self, dim):
+class DAEM_MLP(nn.Module):
+    """
+    MLP that learns the noisy -> ideal mapping for Pauli expectation values.
+
+    Input/output dim = number of observables (e.g. 21 for 3 qubits).
+    No Softmax — expectation values live in [-1, +1], not a probability simplex.
+    Residual connection: the model learns the CORRECTION, not the full mapping.
+    """
+
+    def __init__(self, n_obs, hidden_dim=128):
         super().__init__()
         self.net = nn.Sequential(
-            nn.Linear(dim, 32), nn.ReLU(), nn.Linear(32, dim), nn.Softmax(dim=-1)
-        )
-
-    def forward(self, x):
-        return self.net(x)
-
-
-class DAEM_MLP_Residual(nn.Module):
-    def __init__(self, n_qubits, hidden_dim=64):
-        super().__init__()
-        dim = 2**n_qubits
-        self.net = nn.Sequential(
-            nn.Linear(dim, hidden_dim),
+            nn.Linear(n_obs, hidden_dim),
             nn.ReLU(),
             nn.Linear(hidden_dim, hidden_dim),
             nn.ReLU(),
-            nn.Linear(hidden_dim, dim),
+            nn.Linear(hidden_dim, hidden_dim),
+            nn.ReLU(),
+            nn.Linear(hidden_dim, n_obs),
+            # FIX: NO Softmax — outputs are expectation values in [-1, 1]
         )
-        self.softmax = nn.Softmax(dim=-1)
 
     def forward(self, x):
-        correction = self.net(x)
-        return self.softmax(x + correction)  # learn residual, not full mapping
+        # FIX: residual — learn the noise correction, not the full output
+        return x + self.net(x)
