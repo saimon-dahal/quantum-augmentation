@@ -1,0 +1,70 @@
+{
+  "description": "DAEM Phase 2 \u2014 error mitigation with optimized VQE",
+  "n_qubits": 4,
+  "J": 1.0,
+  "g_values": [
+    0.4,
+    0.9333333333333333,
+    1.4666666666666668,
+    2.0
+  ],
+  "per_g_results": [
+    {
+      "g": 0.4,
+      "exact_ground_energy": -3.264149834264769,
+      "vqe_optimized_energy": -3.122507356961003,
+      "ideal_energy": -3.13798828125,
+      "noisy_energy": -2.9458007812499996,
+      "mitigated_energy": -2.9696471265502664,
+      "noisy_error": 0.19218750000000062,
+      "mitigated_error": 0.16834115469973376,
+      "improvement": 0.023846345300266858,
+      "obs_mae_noisy": 0.02670355902777778,
+      "obs_mae_mitigated": 0.05214468132593184
+    },
+    {
+      "g": 0.9333333333333333,
+      "exact_ground_energy": -4.546169256728639,
+      "vqe_optimized_energy": -4.387569746422295,
+      "ideal_energy": -4.40517578125,
+      "noisy_energy": -4.17353515625,
+      "mitigated_energy": -4.065603104729055,
+      "noisy_error": 0.23164062499999982,
+      "mitigated_error": 0.3395726765209446,
+      "improvement": -0.10793205152094476,
+      "obs_mae_noisy": 0.025596788194444445,
+      "obs_mae_mitigated": 0.10966605126793806
+    },
+    {
+      "g": 1.4666666666666668,
+      "exact_ground_energy": -6.3821477963559765,
+      "vqe_optimized_energy": -4.651430643481134,
+      "ideal_energy": -4.66474609375,
+      "noisy_energy": -4.50361328125,
+      "mitigated_energy": -4.156514659129698,
+      "noisy_error": 0.1611328125,
+      "mitigated_error": 0.5082314346203018,
+      "improvement": -0.34709862212030185,
+      "obs_mae_noisy": 0.020670572916666668,
+      "obs_mae_mitigated": 0.0545866537581799
+    },
+    {
+      "g": 2.0,
+      "exact_ground_energy": -8.376798636850364,
+      "vqe_optimized_energy": -8.273748301346087,
+      "ideal_energy": -8.30078125,
+      "noisy_energy": -7.90966796875,
+      "mitigated_energy": -7.738368860941185,
+      "noisy_error": 0.39111328125,
+      "mitigated_error": 0.5624123890588146,
+      "improvement": -0.17129910780881463,
+      "obs_mae_noisy": 0.02406684027777778,
+      "obs_mae_mitigated": 0.09169338260398398
+    }
+  ],
+  "avg_noisy_energy_error": 0.2440185546875001,
+  "avg_mitigated_energy_error": 0.3946394137249487,
+  "avg_obs_mae_noisy": 0.02425944010416667,
+  "avg_obs_mae_mitigated": 0.07702269223900844,
+  "mlp_epochs": 223
+}
