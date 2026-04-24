@@ -1,10 +1,18 @@
-# Python-generated files
 __pycache__/
-*.py[oc]
-build/
+*.py[cod]
+*.so
+*.egg-info/
+*.egg
 dist/
-wheels/
-*.egg-info
+build/
 
-# Virtual environments
-.venv
+.venv/
+.DS_Store
+uv.lock
+
+# Generated outputs
+*.npy
+*.pt
+*.joblib
+results.json
+p1-outputs/

@@ -1,7 +1,7 @@
 [project]
-name = "quantum_venv"
+name = "daem-minimal"
 version = "0.1.0"
-description = "Add your description here"
+description = "Minimal implementation of Data Augmentation-Empowered Error Mitigation (DAEM) for quantum circuits"
 readme = "README.md"
 requires-python = ">=3.12"
 dependencies = [
